@@ -5,7 +5,8 @@
 FROM ruby:2.7.2-slim-buster
 
 # Update, upgrade, and cleanup debian packages
-RUN apt-get update && \
+RUN apt-get update && apt-get install -y sudo
+    apt-get update && \
     apt-get upgrade --yes && \
     apt-get install -y --no-install-recommends curl build-essential git-core libsqlite3-dev libpq-dev && \
     curl -sL https://deb.nodesource.com/setup_12.x | bash - && \
